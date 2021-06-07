@@ -1,0 +1,32 @@
+package br.com.suhmoraes.desafioorangetalents.client.services;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import br.com.suhmoraes.desafioorangetalents.client.model.CarBrand;
+
+@SpringBootTest
+class FipeServiceTest {
+	
+	@Autowired
+	private FipeService fipeService;
+	
+	@Test
+	public void testShouldFinCarBrandByName() {
+		// given
+		final String carNameBrand = "Acura";
+		
+		// When
+		final CarBrand found = this.fipeService.findCarBrandByName(carNameBrand);
+		
+		//then
+		assertEquals("Acura", found.getName());
+		assertEquals("1", found.getCode());
+		
+	
+	}
+
+}

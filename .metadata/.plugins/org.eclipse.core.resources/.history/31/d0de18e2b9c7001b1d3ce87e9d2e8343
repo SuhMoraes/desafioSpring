@@ -1,0 +1,56 @@
+package br.com.suhmoraes.desafioorangetalents.client.services;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import br.com.suhmoraes.desafioorangetalents.client.model.CarBrand;
+
+@SpringBootTest
+class FipeServiceTest {
+	
+	@Autowired
+	private FipeService fipeService;
+	
+	@Test
+	public void testShouldFindCarBrandByName() {
+		// given
+		final String carNameBrand = "Acura";
+		
+		// When
+		final CarBrand found = this.fipeService.findCarBrandByName(carNameBrand);
+		
+		//then
+		assertEquals("Acura", found.getName());
+		assertEquals("1", found.getCode());
+		
+	
+	}
+	
+	@Test
+	public void testShouldFindCarBrandByUnknownName() {
+		// given
+		final String carNameBrand = "unknown";
+		
+		// When
+		RuntimeException thrown = null;
+		try {
+		
+			this.fipeService.findCarBrandByName(carNameBrand);
+		} catch (RuntimeException ex) {
+			thrown = ex;
+		}
+		
+		//then
+		
+		assertNotNull(thrown);
+		assertEquals("Marca não encontrada", thrown.getMessage());
+		
+		
+	
+	}
+
+}

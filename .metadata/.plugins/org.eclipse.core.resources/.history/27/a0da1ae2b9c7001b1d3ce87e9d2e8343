@@ -1,0 +1,28 @@
+package br.com.suhmoraes.desafioorangetalents.client.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import br.com.suhmoraes.desafioorangetalents.client.FipeClient;
+import br.com.suhmoraes.desafioorangetalents.client.model.CarBrand;
+
+@Service
+public class FipeService {
+	private final FipeClient fipeClient;
+	
+	public FipeService(final FipeClient fipeClient) {
+		this.fipeClient = fipeClient;		
+	}
+	
+	public CarBrand findCarBrandByName(final String carBrandName) {
+		final List<CarBrand> carsBrands = this.fipeClient.findCarsBrands();
+		Optional<CarBrand> carBrand = carsBrands
+				.stream().filter(cb -> cb.getName().equals(carBrandName))
+				.findFirst();
+		return carBrand.orElseThrow(() -> new RuntimeException("Marca não encontrada"));
+		
+	}
+
+}

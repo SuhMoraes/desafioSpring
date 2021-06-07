@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="FipeClientTest" project="desafioorangetalents" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="br.com.suhmoraes.desafioorangetalents.client.FipeClientTest" time="2.494" displayname="FipeClientTest" uniqueid="[engine:junit-jupiter]/[class:br.com.suhmoraes.desafioorangetalents.client.FipeClientTest]">
+    <testcase name="testClientShouldFindCarsBrands" classname="br.com.suhmoraes.desafioorangetalents.client.FipeClientTest" time="1.918" displayname="testClientShouldFindCarsBrands()" uniqueid="[engine:junit-jupiter]/[class:br.com.suhmoraes.desafioorangetalents.client.FipeClientTest]/[method:testClientShouldFindCarsBrands()]"/>
+    <testcase name="testClientShouldFindCarBrandModelsByCarBrandCode" classname="br.com.suhmoraes.desafioorangetalents.client.FipeClientTest" time="0.576" displayname="testClientShouldFindCarBrandModelsByCarBrandCode()" uniqueid="[engine:junit-jupiter]/[class:br.com.suhmoraes.desafioorangetalents.client.FipeClientTest]/[method:testClientShouldFindCarBrandModelsByCarBrandCode()]"/>
+  </testsuite>
+</testrun>

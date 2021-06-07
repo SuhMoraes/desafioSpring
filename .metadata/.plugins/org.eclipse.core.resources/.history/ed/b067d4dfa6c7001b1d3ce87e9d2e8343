@@ -1,0 +1,8 @@
+package br.com.suhmoraes.desafioorangetalents;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(name = "fipeClient", url =  "${fipe-api.url}")
+public interface FipeClient {
+	
+}

@@ -1,0 +1,15 @@
+package br.com.suhmoraes.desafioorangetalents.client;
+
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import br.com.suhmoraes.desafioorangetalents.client.model.CarBrand;
+
+@FeignClient(name = "fipeClient", url =  "${fipe-api.url}")
+public interface FipeClient {
+	
+	@GetMapping("/carros/marcas")
+	List<CarBrand> findCarsBrands();
+}
