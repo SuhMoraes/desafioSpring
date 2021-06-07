@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import br.com.suhmoraes.desafioorangetalents.client.model.CarBrand;
 import br.com.suhmoraes.desafioorangetalents.client.model.CarModel;
+import br.com.suhmoraes.desafioorangetalents.client.model.CarYear;
 import br.com.suhmoraes.desafioorangetalents.client.model.CarsModelsResponse;
 
 
@@ -60,9 +61,65 @@ class FipeClientTest {
 	}
 	
 	
+	@Test
+	public void testClientShouldFindCarsYearByCarBrandCodeAndModelCode() {
+		// given
+		final String carBrandCode = "1";
+		final String carModelCode = "2";
+	
+		//when
+		final List<CarYear> carYears = this.fipeClient.findCarModelYearsByCarBrandCodeAndCarModelCode(
+				carBrandCode,
+				carModelCode
+		);
+		
+		// then
+		assertEquals(8, carYears.size());
+		
+		CarYear carYear = carYears
+				.stream()
+				.filter(year -> year.getCode().equals("1997-1"))
+				.collect(Collectors.toList())
+				.get(0);
+		
+		assertEquals("1997 Gasolina", carYear.getName());
+	}
 
-
+	
 	
 
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

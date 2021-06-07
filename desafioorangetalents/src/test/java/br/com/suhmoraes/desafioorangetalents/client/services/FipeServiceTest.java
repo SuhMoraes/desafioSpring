@@ -3,16 +3,14 @@ package br.com.suhmoraes.desafioorangetalents.client.services;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import br.com.suhmoraes.desafioorangetalents.client.model.CarBrand;
 import br.com.suhmoraes.desafioorangetalents.client.model.CarModel;
-import br.com.suhmoraes.desafioorangetalents.client.model.CarsModelsResponse;
+import br.com.suhmoraes.desafioorangetalents.client.model.CarYear;
+
 
 @SpringBootTest
 class FipeServiceTest {
@@ -93,6 +91,49 @@ class FipeServiceTest {
 		assertEquals("Modelo de carro não encontrado", thrown.getMessage());		
 	}
 	
+
+    @Test
+    public void testShouldFindCarYearByCarBrandCodeAndCarModelCodeAndYear() {
+        // given
+        final String carBrandCode = "1";
+        final String carModelCode = "2";
+        final String year = "1997";
+
+        // when
+        final CarYear carYear = this.fipeService.findCarYearByCarBrandCodeAndCarModelCodeAndCarYearCodeContains(
+                carBrandCode,
+                carModelCode,
+                year
+        );
+
+        // then
+        assertEquals("1997-1", carYear.getCode());
+        assertEquals("1997 Gasolina", carYear.getName());
+    }
+	
+	@Test
+    public void testShouldNotFindCarYearByCarBrandCodeAndCarModelCodeAndUnknownYear() {
+        // given
+        final String carBrandCode = "1";
+        final String carModelCode = "2";
+        final String year = "unknown";
+
+        // when
+        RuntimeException thrown = null;
+        try {
+        	this.fipeService.findCarYearByCarBrandCodeAndCarModelCodeAndCarYearCodeContains(
+                    carBrandCode,
+                    carModelCode,
+                    year
+            );
+        } catch (RuntimeException ex) {
+            thrown = ex;
+        }
+
+        // then
+        assertNotNull(thrown);
+        assertEquals("Ano não encontrado para o veículo", thrown.getMessage());
+    }
 }
 		
 		

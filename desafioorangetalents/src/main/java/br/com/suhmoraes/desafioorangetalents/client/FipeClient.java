@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import br.com.suhmoraes.desafioorangetalents.client.model.CarBrand;
+import br.com.suhmoraes.desafioorangetalents.client.model.CarYear;
 import br.com.suhmoraes.desafioorangetalents.client.model.CarsModelsResponse;
 
 @FeignClient(name = "fipeClient", url =  "${fipe-api.url}")
@@ -17,4 +18,12 @@ public interface FipeClient {
 	
 	@GetMapping("/carros/marcas/{carBrandCode}/modelos")
 	CarsModelsResponse findCarBrandModels(@PathVariable("carBrandCode") final String carBranCode);
+	
+	@GetMapping("/carros/marcas/{carBrandCode}/modelos/{carModelCode}/anos")
+	List<CarYear> findCarModelYearsByCarBrandCodeAndCarModelCode(@PathVariable("carBrandCode") final String carBrandCode,
+			@PathVariable("carModelCode") final String carModelCode);
+
+
+
+	
 }

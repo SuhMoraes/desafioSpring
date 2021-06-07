@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import br.com.suhmoraes.desafioorangetalents.client.FipeClient;
 import br.com.suhmoraes.desafioorangetalents.client.model.CarBrand;
 import br.com.suhmoraes.desafioorangetalents.client.model.CarModel;
+import br.com.suhmoraes.desafioorangetalents.client.model.CarYear;
 import br.com.suhmoraes.desafioorangetalents.client.model.CarsModelsResponse;
 
 @Service
@@ -38,4 +39,26 @@ public class FipeService {
 		return carModel.orElseThrow(() -> new RuntimeException("Modelo de carro não encontrado"));
 		
 	}
+	
+	
+
+	public CarYear findCarYearByCarBrandCodeAndCarModelCodeAndCarYearCodeContains(         final String carBrandCode,
+            final String carModelCode,
+            final String year
+    ) {
+        final List<CarYear> carYears = this.fipeClient.findCarModelYearsByCarBrandCodeAndCarModelCode(
+                carBrandCode,
+                carModelCode
+        );
+
+        final Optional<CarYear> carYear = carYears
+                .stream()
+                .filter(cy -> cy.getCode().contains(year))
+                .findFirst();
+
+        return carYear.orElseThrow(() ->
+                new RuntimeException("Ano não encontrado para o veículo"));
+	
+	}
+
 }
