@@ -3,3 +3,14 @@
 1623081180200	Delete element
 1623086856800	Rename type 'CarResponse'
 1623089221561	Delete element
+1623098404371	Rename compilation unit 'UserService.java'
+1623098815935	Rename type 'UsersRetrivealService'
+1623099218471	Delete element
+1623099797369	Rename compilation unit 'UsersRetrievalService.java'
+1623101933238	Copy package
+1623101941573	Delete element
+1623104050935	Rename package 'br.com.suhmoraes.desafioorangetalents.DTO'
+1623104086162	Copy package
+1623104097543	Delete element
+1623104545151	Rename package 'br.com.suhmoraes.desafioorangetalents.client.services'
+1623104582009	Rename package 'br.com.suhmoraes.desafioorangetalents.client.services'

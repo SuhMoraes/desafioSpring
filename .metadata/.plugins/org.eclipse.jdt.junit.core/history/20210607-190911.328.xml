@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UserCreatorServiceTest" project="desafioorangetalents" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="br.com.suhmoraes.desafioorangetalents.client.services.UserCreatorServiceTest" time="0.5" displayname="UserCreatorServiceTest" uniqueid="[engine:junit-jupiter]/[class:br.com.suhmoraes.desafioorangetalents.client.services.UserCreatorServiceTest]">
+    <testcase name="testShouldCreateANewUser" classname="br.com.suhmoraes.desafioorangetalents.client.services.UserCreatorServiceTest" time="0.475" displayname="testShouldCreateANewUser()" uniqueid="[engine:junit-jupiter]/[class:br.com.suhmoraes.desafioorangetalents.client.services.UserCreatorServiceTest]/[method:testShouldCreateANewUser()]"/>
+    <testcase name="testShouldNotCreateAnInvalidNewUser" classname="br.com.suhmoraes.desafioorangetalents.client.services.UserCreatorServiceTest" time="0.025" displayname="testShouldNotCreateAnInvalidNewUser()" uniqueid="[engine:junit-jupiter]/[class:br.com.suhmoraes.desafioorangetalents.client.services.UserCreatorServiceTest]/[method:testShouldNotCreateAnInvalidNewUser()]"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,69 @@
+package br.com.suhmoraes.desafioorangetalents.domain;
+
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name ="users")
+public class UserEntity {
+	
+	@Column(nullable = false)
+	private String name;
+	
+	@Column(nullable = false, unique = true)
+	private String email;
+	
+	@Id
+	@Column(name = "cpf", nullable = false, unique = true)
+	private String registerId;
+	
+	@Column(nullable = false)
+	private LocalDate birthDate;
+	
+	
+	public UserEntity() {
+		this.name = "";
+		this.email = "";
+		this.registerId = "";
+		this.birthDate = LocalDate.EPOCH;
+	}
+
+
+	public UserEntity(String name, String email, String registerId, LocalDate birthDate) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.registerId = registerId;
+		this.birthDate = birthDate;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public String getRegisterId() {
+		return registerId;
+	}
+
+
+	public LocalDate getBirthDate() {
+		return birthDate;
+	}
+	
+	
+	
+	
+	
+	
+}

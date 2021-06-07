@@ -1,0 +1,5 @@
+package br.com.suhmoraes.desafioorangetalents.repository;
+
+public interface UsersRepository {
+
+}

@@ -1,0 +1,32 @@
+package br.com.suhmoraes.desafioorangetalents.client.services;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import br.com.suhmoraes.desafioorangetalents.domain.UserEntity;
+
+@
+@Service
+public class UserCreatorService {
+    private final UsersRepository repository;
+
+    public UserCreatorService(final UsersRepository repository) {
+        this.repository = repository;
+    }
+
+    public UserEntity create(UserEntity entity) {
+        Optional<UserEntity> found = this.repository.findById(entity.getRegisterId());
+        found.ifPresent(u -> {
+            throw new UserAlreadyExistsException(entity.getRegisterId());
+        });
+
+        found = this.repository.findByEmail(entity.getEmail());
+        found.ifPresent(u -> {
+            throw new UserAlreadyExistsException(entity.getEmail());
+        });
+
+        return this.repository.save(entity);
+    }
+
+}

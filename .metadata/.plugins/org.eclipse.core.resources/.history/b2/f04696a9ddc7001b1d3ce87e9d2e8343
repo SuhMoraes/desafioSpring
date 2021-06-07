@@ -1,0 +1,5 @@
+package br.com.suhmoraes.desafioorangetalents.DTO;
+
+public class UserDTO {
+
+}

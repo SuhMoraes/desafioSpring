@@ -1,0 +1,134 @@
+package br.com.suhmoraes.desafioorangetalents.client.services;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+import java.time.LocalDate;
+import java.time.Month;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import br.com.suhmoraes.desafioorangetalents.DesafioorangetalentsApplication;
+import br.com.suhmoraes.desafioorangetalents.domain.UserEntity;
+import br.com.suhmoraes.desafioorangetalents.repository.UsersRepository;
+
+@SpringBootTest
+class UserCreatorServiceTest extends DesafioorangetalentsApplication {
+    @Autowired
+    private UserCreatorService service;
+
+    @Autowired
+    private UsersRepository repository;
+
+    @BeforeEach
+    public void setup() {
+        this.repository.deleteAll();
+    }
+
+    @Test
+    public void testShouldCreateANewUser() {
+        // given
+        UserEntity entity = new UserEntity(
+                "Mariana Lima",
+                "marilima@gmail.com",
+                "01204112811",
+                LocalDate.of(1998, Month.FEBRUARY, 20)
+        );
+
+        // when
+        UserEntity created = this.service.create(entity);
+
+        // then
+        assertEquals(entity, created);
+    }
+
+    @Test
+    public void testShouldNotCreateAnInvalidNewUser() {
+        // given
+        UserEntity entity = new UserEntity(
+                null,
+                "marilima@gmail.com",
+                "01204112811",
+                LocalDate.of(1998, Month.FEBRUARY, 20)
+        );
+
+        // when
+        UserEntity created = null;
+        Exception thrown = null;
+        try {
+            created = this.service.create(entity);
+        } catch (Exception ex) {
+            thrown = ex;
+        }
+
+        // then
+        assertNull(created);
+        assertNotNull(thrown);
+    }
+
+    @Test
+    public void testShouldNotCreateAnExistingUser() {
+        // given
+        UserEntity registerCpf = new UserEntity(
+        		"Mariana Lima",
+                "marilima@gmail.com",
+                "11111111111",
+                LocalDate.of(1998, Month.FEBRUARY, 20)
+        );
+        UserEntity registerEmail = new UserEntity(
+                "Fernando Fernandes",
+                "ferfernades@gmail.com",
+                "12345678911",
+                LocalDate.of(1989, Month.MAY, 20)
+        );
+        this.service.create(registerCpf);
+        this.service.create(registerEmail);
+
+        // when
+        UserEntity existingCpf = new UserEntity(
+                "Other Person",
+                "douglasffilho@gmail.com",
+                "11111111111",
+                LocalDate.of(1991, Month.FEBRUARY, 20)
+        );
+        UserEntity existingEmail = new UserEntity(
+                "Other Person",
+                "douglas.filho@gmail.com",
+                "22222222222",
+                LocalDate.of(1991, Month.FEBRUARY, 20)
+        );
+
+        UserAlreadyExistsException existingCpfConflict = null;
+        try {
+            this.service.create(existingCpf);
+        } catch (UserAlreadyExistsException ex) {
+            existingCpfConflict = ex;
+        }
+
+        UserAlreadyExistsException existingEmailConflict = null;
+        try {
+            this.service.create(existingEmail);
+        } catch (UserAlreadyExistsException ex) {
+            existingEmailConflict = ex;
+        }
+
+        // then
+        assertNotNull(existingCpfConflict);
+        assertEquals(
+                "Usuário já cadastrado com o identificador = 11111111111",
+                existingCpfConflict.getMessage()
+        );
+        assertNotNull(existingEmailConflict);
+        assertEquals(
+                "Usuário já cadastrado com o identificador = mari@gmail.com",
+                existingEmailConflict.getMessage()
+        );
+
+    }
+	
+
+}

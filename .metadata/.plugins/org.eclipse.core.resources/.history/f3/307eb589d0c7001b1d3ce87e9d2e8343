@@ -1,0 +1,5 @@
+package br.com.suhmoraes.desafioorangetalents.client.services;
+
+public class UserService {
+
+}

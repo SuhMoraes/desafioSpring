@@ -1,0 +1,55 @@
+package br.com.suhmoraes.desafioorangetalents.client.services;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import java.time.LocalDate;
+import java.time.Month;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import br.com.suhmoraes.desafioorangetalents.DesafioorangetalentsApplication;
+import br.com.suhmoraes.desafioorangetalents.domain.UserEntity;
+import br.com.suhmoraes.desafioorangetalents.repository.UsersRepository;
+
+
+	class UserRetrievalServiceTest extends DesafioorangetalentsApplication {
+	    @Autowired
+	    private UserRetrievalService service;
+
+	    @Autowired
+	    private UsersRepository repository;
+
+	    private UserEntity autoCreated;
+
+	    @BeforeEach
+	    private void setup() {
+	        this.repository.deleteAll();
+
+	        this.autoCreated = new UserEntity(
+	                "Douglas Filho",
+	                "douglasf.filho@gmail.com",
+	                "08468331406",
+	                LocalDate.of(1991, Month.FEBRUARY, 20)
+	        );
+
+	        this.repository.save(autoCreated);
+	    }
+
+	    @Test
+	    public void testShouldRetrieveUserById() {
+	        // given
+	        String id = "08468331406";
+
+	        // when
+	        UserEntity entity = this.service.findById(id);
+
+	        // then
+	        assertNotNull(entity);
+	        assertEquals(this.autoCreated, entity);
+	    }
+
+	
+}

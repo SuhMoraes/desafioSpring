@@ -1,0 +1,25 @@
+package br.com.suhmoraes.desafioorangetalents.client.model.copy;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class CarModel {
+	
+	@JsonProperty("nome")
+	private String name;
+	
+	@JsonProperty("codigo")
+	private String code;
+	
+	public CarModel() {		
+		this.name = "";
+		this.code = "";
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public String getCode() {
+		return code;
+	}
+}
