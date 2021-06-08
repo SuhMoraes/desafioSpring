@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    platform: "postgres"
+    url: "jdbc:postgresql://localhost:5432/orange_talents"
+    driverClassName: "org.postgresql.Driver"
+    username: "postgres"
+    password: "Suh031522"
+  jpa:
+    database: "POSTGRESQL"
+    database-platform: "org.hibernate.dialect.PostgreSQLDialect"
+    show-sql: true
+    hibernate:
+      ddl-auto: "update"

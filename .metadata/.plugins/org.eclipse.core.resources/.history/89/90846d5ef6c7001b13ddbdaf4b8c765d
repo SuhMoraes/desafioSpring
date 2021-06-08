@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: "jdbc:postgresql://localhost:5432/orange_talents"
+    username: "postgres"
+    password: "Suh031522"
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: "update"

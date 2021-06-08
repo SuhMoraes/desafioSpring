@@ -19,6 +19,7 @@ currentIPColor=90,90,90
 currentLineColor=55,55,55
 deletionIndicationColor=224,226,228
 eclipse.preferences.version=1
+errorIndicationColor=255,0,0
 filteredSearchResultIndicationColor=27,98,145
 hyperlinkColor=102,175,249
 hyperlinkColor.SystemDefault=false

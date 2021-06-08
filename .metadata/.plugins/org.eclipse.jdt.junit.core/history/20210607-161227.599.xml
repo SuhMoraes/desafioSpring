@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="FipeClientTest" project="desafioorangetalents" tests="3" started="3" failures="0" errors="0" ignored="0">
-  <testsuite name="br.com.suhmoraes.desafioorangetalents.client.FipeClientTest" time="2.265" displayname="FipeClientTest" uniqueid="[engine:junit-jupiter]/[class:br.com.suhmoraes.desafioorangetalents.client.FipeClientTest]">
-    <testcase name="testClientShouldFindCarsBrands" classname="br.com.suhmoraes.desafioorangetalents.client.FipeClientTest" time="1.808" displayname="testClientShouldFindCarsBrands()" uniqueid="[engine:junit-jupiter]/[class:br.com.suhmoraes.desafioorangetalents.client.FipeClientTest]/[method:testClientShouldFindCarsBrands()]"/>
-    <testcase name="testClientShouldFindCarBrandModelsByCarBrandCode" classname="br.com.suhmoraes.desafioorangetalents.client.FipeClientTest" time="0.21" displayname="testClientShouldFindCarBrandModelsByCarBrandCode()" uniqueid="[engine:junit-jupiter]/[class:br.com.suhmoraes.desafioorangetalents.client.FipeClientTest]/[method:testClientShouldFindCarBrandModelsByCarBrandCode()]"/>
-    <testcase name="testClientShouldFindCarsYearByCarBrandCodeAndModelCode" classname="br.com.suhmoraes.desafioorangetalents.client.FipeClientTest" time="0.247" displayname="testClientShouldFindCarsYearByCarBrandCodeAndModelCode()" uniqueid="[engine:junit-jupiter]/[class:br.com.suhmoraes.desafioorangetalents.client.FipeClientTest]/[method:testClientShouldFindCarsYearByCarBrandCodeAndModelCode()]"/>
-  </testsuite>
-</testrun>

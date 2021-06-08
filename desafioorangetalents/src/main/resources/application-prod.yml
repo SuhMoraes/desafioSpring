@@ -1,13 +1,10 @@
 spring:
   datasource:
-    platform: "postgres"
-    url: "jdbc:postgresql://localhost:5432/database"
-    driverClassName: "org.postgresql.Driver"
-    username: "db_user"
-    password: "db_pass"
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: "jdbc:postgresql://localhost:5432/orange_talents"
+    username: "postgres"
+    password: "Suh031522"
   jpa:
-    database: "POSTGRESQL"
-    database-platform: "org.hibernate.dialect.PostgreSQLDialect"
-    show-sql: true
+    generate-ddl: true
     hibernate:
       ddl-auto: "update"

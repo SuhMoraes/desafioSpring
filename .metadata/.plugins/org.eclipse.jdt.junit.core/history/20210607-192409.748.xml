@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="UserRetrievalServiceTest" project="desafioorangetalents" tests="2" started="2" failures="0" errors="0" ignored="0">
-  <testsuite name="br.com.suhmoraes.desafioorangetalents.services.UserRetrievalServiceTest" time="0.757" displayname="UserRetrievalServiceTest" uniqueid="[engine:junit-jupiter]/[class:br.com.suhmoraes.desafioorangetalents.services.UserRetrievalServiceTest]">
-    <testcase name="testShouldRetrieveUserById" classname="br.com.suhmoraes.desafioorangetalents.services.UserRetrievalServiceTest" time="0.719" displayname="testShouldRetrieveUserById()" uniqueid="[engine:junit-jupiter]/[class:br.com.suhmoraes.desafioorangetalents.services.UserRetrievalServiceTest]/[method:testShouldRetrieveUserById()]"/>
-    <testcase name="testShouldThrowErrorByRetrievingUserByUnknownId" classname="br.com.suhmoraes.desafioorangetalents.services.UserRetrievalServiceTest" time="0.037" displayname="testShouldThrowErrorByRetrievingUserByUnknownId()" uniqueid="[engine:junit-jupiter]/[class:br.com.suhmoraes.desafioorangetalents.services.UserRetrievalServiceTest]/[method:testShouldThrowErrorByRetrievingUserByUnknownId()]"/>
-  </testsuite>
-</testrun>
